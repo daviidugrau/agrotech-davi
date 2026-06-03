@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgroVerde — Pecuária Sustentável Inteligente</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">🌿</span>
+        <div class="logo-text">
+          <span class="logo-name">AgroVerde</span>
+          <span class="logo-tag">Tecnologia Pecuária</span>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#calculadora" class="nav-link">Calculadora</a>
+        <a href="#resultados" class="nav-link">Resultados</a>
+        <a href="#educativo" class="nav-link">Guia</a>
+        <button class="btn-theme" id="btnTheme" aria-label="Alternar tema">🌙</button>
+      </nav>
+      <a href="#calculadora" class="btn-cta">Calcular Impacto</a>
+      <button class="nav-mobile-toggle" id="navToggle" aria-label="Menu">☰</button>
+    </div>
+    <nav class="nav-mobile" id="navMobile">
+      <a href="#calculadora" class="nav-link">Calculadora</a>
+      <a href="#resultados" class="nav-link">Resultados</a>
+      <a href="#educativo" class="nav-link">Guia</a>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-grain"></div>
+      <div class="hero-orb orb1"></div>
+      <div class="hero-orb orb2"></div>
+      <div class="hero-orb orb3"></div>
+    </div>
+    <div class="container hero-content">
+      <div class="hero-badge animate-fade-up">🌱 Plataforma Agroambiental</div>
+      <h1 class="hero-title animate-fade-up delay-1">
+        Pecuária inteligente.<br />
+        <span class="text-gradient">Planeta preservado.</span>
+      </h1>
+      <p class="hero-sub animate-fade-up delay-2">
+        Cálculos precisos que ajudam a reduzir desperdícios, emissão de carbono, consumo excessivo
+        de água e a melhorar a produtividade do seu rebanho — tudo em uma plataforma.
+      </p>
+      <div class="hero-actions animate-fade-up delay-3">
+        <a href="#calculadora" class="btn-primary">Iniciar Cálculo</a>
+        <a href="#educativo" class="btn-ghost">Saiba Mais</a>
+      </div>
+    </div>
+
+    <!-- Feature cards -->
+    <div class="container hero-cards animate-fade-up delay-4">
+      <div class="feature-card">
+        <span class="feature-icon">🌾</span>
+        <h3>Menos Desperdício</h3>
+        <p>Reduza até 30% do desperdício alimentar com cálculos de consumo ideal</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">⚡</span>
+        <h3>Melhor Conversão</h3>
+        <p>Otimize a conversão alimentar e aumente o ganho de peso com eficiência</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🌍</span>
+        <h3>Menos Metano</h3>
+        <p>Monitore e reduza emissões de metano entérico e pegada de carbono</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">💧</span>
+        <h3>Economia Hídrica</h3>
+        <p>Controle o consumo de água e identifique perdas evitáveis</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">💰</span>
+        <h3>Mais Lucro</h3>
+        <p>Visualize custos, receitas e lucratividade em tempo real</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CALCULADORA ===== -->
+  <section class="calc-section" id="calculadora">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Calculadora</span>
+        <h2 class="section-title">Plataforma de Cálculos Pecuários</h2>
+        <p class="section-sub">Preencha os dados do seu rebanho e obtenha um diagnóstico completo de eficiência e sustentabilidade</p>
+      </div>
+
+      <!-- Tab navigation -->
+      <div class="tabs" id="tabs">
+        <button class="tab active" data-tab="rebanho">🐄 Rebanho</button>
+        <button class="tab" data-tab="alimentacao">🌾 Alimentação</button>
+        <button class="tab" data-tab="agua">💧 Água</button>
+        <button class="tab" data-tab="pastagem">🌿 Pastagem</button>
+        <button class="tab" data-tab="financeiro">💰 Financeiro</button>
+        <button class="tab" data-tab="ambiental">🌍 Ambiental</button>
+      </div>
+
+      <div class="form-wrapper">
+
+        <!-- TAB: REBANHO -->
+        <div class="tab-panel active" id="tab-rebanho">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Quantidade de Cabeças</label>
+              <input type="number" id="qtdCabecas" placeholder="ex: 200" min="1" />
+              <span class="form-hint">Total de animais no rebanho</span>
+            </div>
+            <div class="form-group">
+              <label>Peso Médio (kg)</label>
+              <input type="number" id="pesoMedio" placeholder="ex: 380" min="1" />
+              <span class="form-hint">Peso médio por animal</span>
+            </div>
+            <div class="form-group">
+              <label>Idade Média (meses)</label>
+              <input type="number" id="idadeMedia" placeholder="ex: 18" min="1" />
+            </div>
+            <div class="form-group">
+              <label>Ganho de Peso Diário (kg/dia)</label>
+              <input type="number" id="ganhoPeso" placeholder="ex: 0.8" step="0.01" min="0" />
+              <span class="form-hint">GMD esperado ou atual</span>
+            </div>
+            <div class="form-group">
+              <label>Taxa de Mortalidade (%)</label>
+              <input type="number" id="mortalidade" placeholder="ex: 2" step="0.1" min="0" max="100" />
+            </div>
+            <div class="form-group">
+              <label>Quantidade de Lotes</label>
+              <input type="number" id="qtdLotes" placeholder="ex: 4" min="1" />
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB: ALIMENTAÇÃO -->
+        <div class="tab-panel" id="tab-alimentacao">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Consumo Diário por Animal (kg MS)</label>
+              <input type="number" id="consumoDiario" placeholder="ex: 9.5" step="0.1" min="0" />
+              <span class="form-hint">Matéria seca consumida por animal/dia</span>
+            </div>
+            <div class="form-group">
+              <label>Tipo de Ração Principal</label>
+              <select id="tipoRacao">
+                <option value="concentrado">Concentrado</option>
+                <option value="volumoso">Volumoso</option>
+                <option value="misto">Misto</option>
+                <option value="pasto">Pasto Exclusivo</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Preço da Ração (R$/kg)</label>
+              <input type="number" id="precoRacao" placeholder="ex: 1.80" step="0.01" min="0" />
+            </div>
+            <div class="form-group">
+              <label>Sal Mineral (g/animal/dia)</label>
+              <input type="number" id="salMineral" placeholder="ex: 80" min="0" />
+            </div>
+            <div class="form-group">
+              <label>Silagem (kg/animal/dia)</label>
+              <input type="number" id="silagem" placeholder="ex: 10" step="0.1" min="0" />
+            </div>
+            <div class="form-group">
+              <label>Pastagem (horas/dia no pasto)</label>
+              <input type="number" id="pastagem" placeholder="ex: 12" min="0" max="24" />
+            </div>
+            <div class="form-group">
+              <label>Desperdício Estimado (%)</label>
+              <input type="number" id="desperdicio" placeholder="ex: 15" step="0.1" min="0" max="100" />
+              <span class="form-hint">% da ração que é perdida</span>
+            </div>
+            <div class="form-group">
+              <label>Eficiência Alimentar Alvo (kg ganho/kg MS)</label>
+              <input type="number" id="eficienciaAlvo" placeholder="ex: 0.12" step="0.001" min="0" />
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB: ÁGUA -->
+        <div class="tab-panel" id="tab-agua">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Consumo Médio de Água (L/animal/dia)</label>
+              <input type="number" id="consumoAgua" placeholder="ex: 50" min="0" />
+              <span class="form-hint">Referência: 30–60 L para bovinos adultos</span>
+            </div>
+            <div class="form-group">
+              <label>Fonte de Água</label>
+              <select id="fonteAgua">
+                <option value="poco">Poço Artesiano</option>
+                <option value="rio">Rio/Córrego</option>
+                <option value="represa">Represa/Açude</option>
+                <option value="rede">Rede Pública</option>
+                <option value="chuva">Captação de Chuva</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Custo Hídrico (R$/m³)</label>
+              <input type="number" id="custoAgua" placeholder="ex: 3.50" step="0.01" min="0" />
+            </div>
+            <div class="form-group">
+              <label>Perda de Água Estimada (%)</label>
+              <input type="number" id="perdaAgua" placeholder="ex: 10" step="0.1" min="0" max="100" />
+              <span class="form-hint">Vazamentos, evaporação, bebedouro</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB: PASTAGEM -->
+        <div class="tab-panel" id="tab-pastagem">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Área Total da Fazenda (ha)</label>
+              <input type="number" id="areaTotal" placeholder="ex: 500" min="0" />
+            </div>
+            <div class="form-group">
+              <label>Área de Pasto (ha)</label>
+              <input type="number" id="areaPasto" placeholder="ex: 400" min="0" />
+            </div>
+            <div class="form-group">
+              <label>Taxa de Lotação Atual (UA/ha)</label>
+              <input type="number" id="lotacaoAtual" placeholder="ex: 1.2" step="0.1" min="0" />
+            </div>
+            <div class="form-group">
+              <label>Taxa de Lotação Suportada (UA/ha)</label>
+              <input type="number" id="lotacaoSuportada" placeholder="ex: 1.5" step="0.1" min="0" />
+            </div>
+            <div class="form-group">
+              <label>Rotação de Pastagem (piquetes)</label>
+              <input type="number" id="rotacaoPiquetes" placeholder="ex: 8" min="0" />
+              <span class="form-hint">Nº de piquetes no sistema rotativo</span>
+            </div>
+            <div class="form-group">
+              <label>Índice de Degradação do Pasto (%)</label>
+              <input type="number" id="degradacaoPasto" placeholder="ex: 20" min="0" max="100" />
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB: FINANCEIRO -->
+        <div class="tab-panel" id="tab-financeiro">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Valor por Cabeça (R$)</label>
+              <input type="number" id="valorCabeca" placeholder="ex: 3500" min="0" />
+            </div>
+            <div class="form-group">
+              <label>Custo Operacional Mensal (R$)</label>
+              <input type="number" id="custoOperacional" placeholder="ex: 5000" min="0" />
+            </div>
+            <div class="form-group">
+              <label>Custo Veterinário Mensal (R$)</label>
+              <input type="number" id="custoVeterinario" placeholder="ex: 800" min="0" />
+            </div>
+            <div class="form-group">
+              <label>Custo de Transporte Mensal (R$)</label>
+              <input type="number" id="custoTransporte" placeholder="ex: 600" min="0" />
+            </div>
+            <div class="form-group">
+              <label>Custo de Suplementação Mensal (R$)</label>
+              <input type="number" id="custoSuplementacao" placeholder="ex: 1200" min="0" />
+            </div>
+            <div class="form-group">
+              <label>Preço da Arroba (R$/@)</label>
+              <input type="number" id="precoArroba" placeholder="ex: 280" min="0" />
+            </div>
+            <div class="form-group">
+              <label>Receita Mensal Estimada (R$)</label>
+              <input type="number" id="receitaMensal" placeholder="ex: 20000" min="0" />
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB: AMBIENTAL -->
+        <div class="tab-panel" id="tab-ambiental">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Prática de Manejo</label>
+              <select id="praticaManejo">
+                <option value="convencional">Convencional</option>
+                <option value="semi-intensivo">Semi-intensivo</option>
+                <option value="intensivo">Intensivo</option>
+                <option value="regenerativo">Regenerativo/Orgânico</option>
+                <option value="silvipastoril">Silvipastoril</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Uso de Energia Renovável</label>
+              <select id="energiaRenovavel">
+                <option value="nao">Não utiliza</option>
+                <option value="parcial">Parcialmente</option>
+                <option value="total">Totalmente renovável</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Possui Reserva Legal / APP (%)</label>
+              <input type="number" id="reservaLegal" placeholder="ex: 20" min="0" max="100" />
+              <span class="form-hint">% da área com reserva legal</span>
+            </div>
+            <div class="form-group">
+              <label>Tratamento de Resíduos</label>
+              <select id="tratamentoResiduos">
+                <option value="nenhum">Nenhum</option>
+                <option value="biodigestor">Biodigestor</option>
+                <option value="compostagem">Compostagem</option>
+                <option value="completo">Completo (Bio + Compost)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOTÃO CALCULAR -->
+        <div class="calc-actions">
+          <button class="btn-primary btn-calcular" id="btnCalcular">
+            <span class="btn-icon">⚡</span> Calcular Diagnóstico Completo
+          </button>
+          <button class="btn-ghost btn-limpar" id="btnLimpar">🗑️ Limpar Dados</button>
+          <button class="btn-ghost btn-salvar" id="btnSalvar">💾 Salvar Dados</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RESULTADOS ===== -->
+  <section class="results-section" id="resultados">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Diagnóstico</span>
+        <h2 class="section-title">Resultados do Cálculo</h2>
+      </div>
+
+      <!-- Score geral -->
+      <div class="score-panel" id="scorePanel">
+        <div class="score-ring-wrap">
+          <svg class="score-ring" viewBox="0 0 120 120">
+            <circle class="score-track" cx="60" cy="60" r="52" />
+            <circle class="score-fill" id="scoreCircle" cx="60" cy="60" r="52"
+              stroke-dasharray="327" stroke-dashoffset="327" />
+          </svg>
+          <div class="score-center">
+            <span class="score-value" id="scoreValue">—</span>
+            <span class="score-label">Score</span>
+          </div>
+        </div>
+        <div class="score-info">
+          <div class="score-grade" id="scoreGrade">—</div>
+          <div class="score-desc" id="scoreDesc">Preencha os dados e calcule</div>
+          <div class="score-badges" id="scoreBadges"></div>
+        </div>
+      </div>
+
+      <!-- Cards de resultado -->
+      <div class="result-cards" id="resultCards">
+        <!-- Custos -->
+        <div class="result-card" id="rc-custos">
+          <div class="rc-header">
+            <span class="rc-icon">💰</span>
+            <h3>Custos</h3>
+          </div>
+          <div class="rc-rows">
+            <div class="rc-row"><span>Custo diário total</span><strong id="r-custoDiario">—</strong></div>
+            <div class="rc-row"><span>Custo mensal</span><strong id="r-custoMensal">—</strong></div>
+            <div class="rc-row"><span>Custo anual</span><strong id="r-custoAnual">—</strong></div>
+            <div class="rc-row"><span>Custo por cabeça/dia</span><strong id="r-custoCabDia">—</strong></div>
+          </div>
+        </div>
+        <!-- Lucratividade -->
+        <div class="result-card" id="rc-lucro">
+          <div class="rc-header">
+            <span class="rc-icon">📈</span>
+            <h3>Lucratividade</h3>
+          </div>
+          <div class="rc-rows">
+            <div class="rc-row"><span>Lucro mensal</span><strong id="r-lucroMensal">—</strong></div>
+            <div class="rc-row"><span>Lucro anual</span><strong id="r-lucroAnual">—</strong></div>
+            <div class="rc-row"><span>Lucro por arroba</span><strong id="r-lucroPorArroba">—</strong></div>
+            <div class="rc-row"><span>Margem líquida</span><strong id="r-margem">—</strong></div>
+          </div>
+        </div>
+        <!-- Alimentação -->
+        <div class="result-card" id="rc-alimentacao">
+          <div class="rc-header">
+            <span class="rc-icon">🌾</span>
+            <h3>Alimentação</h3>
+          </div>
+          <div class="rc-rows">
+            <div class="rc-row"><span>Consumo total diário</span><strong id="r-consumoTotal">—</strong></div>
+            <div class="rc-row"><span>Eficiência alimentar</span><strong id="r-eficiencia">—</strong></div>
+            <div class="rc-row"><span>Desperdício diário</span><strong id="r-desperdicioKg">—</strong></div>
+            <div class="rc-row"><span>Custo da ração/dia</span><strong id="r-custoRacaoDia">—</strong></div>
+          </div>
+          <div class="progress-wrap">
+            <span>Eficiência Alimentar</span>
+            <div class="progress-bar"><div class="progress-fill" id="pb-eficiencia"></div></div>
+          </div>
+        </div>
+        <!-- Água -->
+        <div class="result-card" id="rc-agua">
+          <div class="rc-header">
+            <span class="rc-icon">💧</span>
+            <h3>Consumo Hídrico</h3>
+          </div>
+          <div class="rc-rows">
+            <div class="rc-row"><span>Consumo total diário</span><strong id="r-aguaDia">—</strong></div>
+            <div class="rc-row"><span>Consumo mensal</span><strong id="r-aguaMes">—</strong></div>
+            <div class="rc-row"><span>Perda diária</span><strong id="r-aguaPerdaDia">—</strong></div>
+            <div class="rc-row"><span>Custo hídrico/mês</span><strong id="r-custoAguaMes">—</strong></div>
+          </div>
+          <div class="progress-wrap">
+            <span>Índice de Perda Hídrica</span>
+            <div class="progress-bar"><div class="progress-fill warn" id="pb-agua"></div></div>
+          </div>
+        </div>
+        <!-- Pastagem -->
+        <div class="result-card" id="rc-pastagem">
+          <div class="rc-header">
+            <span class="rc-icon">🌿</span>
+            <h3>Pastagem & Solo</h3>
+          </div>
+          <div class="rc-rows">
+            <div class="rc-row"><span>Capacidade de suporte</span><strong id="r-capSuporteHA">—</strong></div>
+            <div class="rc-row"><span>Pressão de pastejo</span><strong id="r-pressaoPastejo">—</strong></div>
+            <div class="rc-row"><span>Lotação por ha</span><strong id="r-lotacaoCalc">—</strong></div>
+            <div class="rc-row"><span>Status do pasto</span><strong id="r-statusPasto">—</strong></div>
+          </div>
+          <div class="progress-wrap">
+            <span>Degradação do Pasto</span>
+            <div class="progress-bar"><div class="progress-fill danger" id="pb-pastagem"></div></div>
+          </div>
+        </div>
+        <!-- Ambiental -->
+        <div class="result-card wide" id="rc-ambiental">
+          <div class="rc-header">
+            <span class="rc-icon">🌍</span>
+            <h3>Impacto Ambiental</h3>
+          </div>
+          <div class="rc-rows">
+            <div class="rc-row"><span>Emissão de metano (CH₄/ano)</span><strong id="r-metano">—</strong></div>
+            <div class="rc-row"><span>Equivalente CO₂/ano</span><strong id="r-co2">—</strong></div>
+            <div class="rc-row"><span>Pegada hídrica total</span><strong id="r-pegadaHidrica">—</strong></div>
+            <div class="rc-row"><span>Redução potencial de emissão</span><strong id="r-reducaoEmissao">—</strong></div>
+            <div class="rc-row"><span>Uso eficiente do solo</span><strong id="r-usoSolo">—</strong></div>
+          </div>
+          <div class="env-meters">
+            <div class="env-meter">
+              <label>Emissão de CH₄</label>
+              <div class="progress-bar"><div class="progress-fill danger" id="pb-metano"></div></div>
+            </div>
+            <div class="env-meter">
+              <label>Pegada Hídrica</label>
+              <div class="progress-bar"><div class="progress-fill warn" id="pb-pegada"></div></div>
+            </div>
+            <div class="env-meter">
+              <label>Uso do Solo</label>
+              <div class="progress-bar"><div class="progress-fill" id="pb-solo"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alertas -->
+      <div class="alerts-box" id="alertsBox"></div>
+
+      <!-- Relatório textual -->
+      <div class="report-box" id="reportBox">
+        <div class="report-header">
+          <span>📋 Relatório Ambiental Simplificado</span>
+          <button class="btn-ghost btn-small" id="btnExport">⬇️ Exportar TXT</button>
+        </div>
+        <div class="report-body" id="reportBody">
+          <p class="report-placeholder">Calcule os dados para gerar o relatório.</p>
+        </div>
+      </div>
+
+      <!-- Mini gráfico de custos -->
+      <div class="chart-section" id="chartSection">
+        <h3 class="chart-title">Composição de Custos Mensais</h3>
+        <canvas id="custoChart" width="600" height="280"></canvas>
+        <div class="chart-legend" id="chartLegend"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SEÇÃO EDUCATIVA ===== -->
+  <section class="edu-section" id="educativo">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Guia Prático</span>
+        <h2 class="section-title">Pecuária Regenerativa & Sustentável</h2>
+        <p class="section-sub">Estratégias comprovadas para reduzir impactos e aumentar a lucratividade</p>
+      </div>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-icon">🌱</div>
+          <h3>Manejo Regenerativo</h3>
+          <p>O pastejo rotacional bem planejado permite que as plantas se recuperem, melhora a infiltração de água, fixa carbono no solo e aumenta a biodiversidade. Divida a área em piquetes e respeite os períodos de descanso de 30 a 45 dias.</p>
+          <ul class="edu-list">
+            <li>✔ Reduz erosão do solo em até 60%</li>
+            <li>✔ Aumenta matéria orgânica</li>
+            <li>✔ Melhora qualidade da forragem</li>
+          </ul>
+        </div>
+        <div class="edu-card">
+          <div class="edu-icon">💧</div>
+          <h3>Uso Eficiente da Água</h3>
+          <p>Bovinos adultos consomem entre 30 e 60 litros por dia. Instalar bebedouros com flutuante, evitar desperdício nos cochos e monitorar vazamentos pode reduzir o consumo hídrico em até 25%.</p>
+          <ul class="edu-list">
+            <li>✔ Instale bebedouros com boia</li>
+            <li>✔ Colete água da chuva</li>
+            <li>✔ Monitore consumo por lote</li>
+          </ul>
+        </div>
+        <div class="edu-card">
+          <div class="edu-icon">🌍</div>
+          <h3>Redução de Metano</h3>
+          <p>Cada bovino emite em média 70 a 120 kg de CH₄ por ano pela fermentação entérica. O uso de aditivos (taninos, algas), melhor qualidade da dieta e manejo rotacional podem reduzir essas emissões em até 20%.</p>
+          <ul class="edu-list">
+            <li>✔ Melhore a qualidade da forragem</li>
+            <li>✔ Use taninos naturais na dieta</li>
+            <li>✔ Adote biodigestor para dejetos</li>
+          </ul>
+        </div>
+        <div class="edu-card">
+          <div class="edu-icon">📊</div>
+          <h3>Gestão de Dados</h3>
+          <p>Fazendas que monitoram dados produtivos têm em média 15–20% mais lucratividade. Registre peso, consumo, saúde e custos para identificar gargalos e tomar decisões baseadas em evidências.</p>
+          <ul class="edu-list">
+            <li>✔ Pese animais mensalmente</li>
+            <li>✔ Registre consumo de ração</li>
+            <li>✔ Controle custos por lote</li>
+          </ul>
+        </div>
+        <div class="edu-card">
+          <div class="edu-icon">🌾</div>
+          <h3>Otimização Alimentar</h3>
+          <p>A conversão alimentar ideal para bovinos em confinamento é de 6 a 8 kg de MS por kg de ganho. Ajustar a dieta com nutricionista pode reduzir o desperdício em até 30% e melhorar o GMD.</p>
+          <ul class="edu-list">
+            <li>✔ Formule dietas balanceadas</li>
+            <li>✔ Reduza sobras de cocho</li>
+            <li>✔ Ofereça silagem de qualidade</li>
+          </ul>
+        </div>
+        <div class="edu-card">
+          <div class="edu-icon">🌳</div>
+          <h3>Sistemas Silvipastoris</h3>
+          <p>A integração de árvores com pastagem (Silvipastoril) pode aumentar a produtividade em 30%, oferecer sombra para os animais, sequestrar carbono e diversificar a renda com madeira e frutas.</p>
+          <ul class="edu-list">
+            <li>✔ Plante árvores em faixas</li>
+            <li>✔ Sequestre carbono no campo</li>
+            <li>✔ Diversifique a receita</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-icon">🌿</span>
+        <span class="logo-name">AgroVerde</span>
+        <p>Tecnologia para uma pecuária mais eficiente e sustentável.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#calculadora">Calculadora</a>
+        <a href="#resultados">Resultados</a>
+        <a href="#educativo">Guia Prático</a>
+      </div>
+      <div class="footer-note">
+        <small>© 2024 AgroVerde. Plataforma educacional. Os cálculos são estimativas baseadas em médias zootécnicas.<br/>
+        Dados salvos localmente no navegador.</small>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
